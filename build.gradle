@@ -1,0 +1,62 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.4-SNAPSHOT'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.spring.io/milestone' }
+    maven { url 'https://repo.spring.io/snapshot' }
+    maven { url 'https://jitpack.io'}
+}
+
+dependencies {
+
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-hateoas'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+    implementation 'org.springframework.boot:spring-boot-starter-quartz'
+
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+
+//    implementation 'org.springframework.security:spring-security-oauth2-client'
+
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    implementation 'com.github.ptnplanet:Java-Naive-Bayes-Classifier:1.0.7'
+
+    implementation 'com.cybersource:cybersource-sdk-java:6.2.10'
+
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    runtimeOnly 'com.h2database:h2'
+    runtimeOnly 'mysql:mysql-connector-java'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'org.springframework.amqp:spring-rabbit-test'
+    testImplementation 'com.github.tomakehurst:wiremock:2.24.1'
+    testImplementation 'io.rest-assured:rest-assured:4.1.1'
+    testImplementation 'io.rest-assured:json-path:4.1.1'
+    testImplementation 'io.rest-assured:xml-path:4.1.1'
+
+}
+
+test {
+    useJUnitPlatform()
+}
